@@ -12,28 +12,28 @@ app = FastAPI()
 templates = Jinja2Templates(directory="templates")
 
 
-@app.get("/")
-def root():
-    """
-    Страница ввода Ключа
-    """
-    return FileResponse("templates/get_key.html")
+# @app.get("/")
+# def root():
+#     """
+#     Страница ввода Ключа
+#     """
+#     return FileResponse("templates/get_key.html")
+#
+#
+# @app.post("/postdata")
+# def postdata(api_token=Form()):
+#     """
+#     Сохранение ключа в переменные виртуального окружения
+#     :param api_token: Ключ.
+#     :return: перенаправление на страницу чата с GPT
+#     """
+#
+#     # Сохраняем введенное значение API_TOKEN в переменную окружения
+#     os.environ['API_TOKEN'] = api_token
+#     return RedirectResponse('/message', status_code=status.HTTP_302_FOUND)
 
 
-@app.post("/postdata")
-def postdata(api_token=Form()):
-    """
-    Сохранение ключа в переменные виртуального окружения
-    :param api_token: Ключ.
-    :return: перенаправление на страницу чата с GPT
-    """
-
-    # Сохраняем введенное значение API_TOKEN в переменную окружения
-    os.environ['API_TOKEN'] = api_token
-    return RedirectResponse('/message', status_code=status.HTTP_302_FOUND)
-
-
-@app.get("/message", response_class=HTMLResponse)
+@app.get("/", response_class=HTMLResponse)
 def read_index(request: Request):
     """
     Страница чата
