@@ -1,8 +1,7 @@
 import ollama
 from ollama import Client
 
-client = Client(host='http://10.129.0.32:11434')
-
+client = Client(host='http://51.250.96.27:11434')
 
 
 def ollama_response(history, message):
@@ -10,12 +9,12 @@ def ollama_response(history, message):
     Взаимодействие с Ollama
     """
     # client.pull(model='llama3.2')
-    response = client.chat(model='mistral', messages= [
-                    {
-                            'role': 'user',
-                            'content': f'{message}, History:{history}'
-                        },
-                    ])
+    response = client.chat(model='llama3.2:1b', messages=[
+        {
+            'role': 'user',
+            'content': f'{message}, History:{history}'
+        },
+    ])
 
     return [response['message']['content']], response
 
@@ -31,3 +30,7 @@ def show_model():
     return models_list
     # choice_model = int(input("Выберите модель - "))
     # return models_list[choice_model - 1]
+
+
+def pull_model(model):
+    client.pull(model=model)
