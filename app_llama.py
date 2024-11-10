@@ -1,7 +1,6 @@
-import ollama
 from ollama import Client
 
-client = Client(host='http://51.250.96.27:11434')
+client = Client(host='http://127.0.0.1:11434')
 
 
 def ollama_response(history, message):
@@ -17,19 +16,6 @@ def ollama_response(history, message):
     ])
 
     return [response['message']['content']], response
-
-
-def show_model():
-    models = client.list()
-    model_number = 1
-    models_list = []
-    for i in models['models']:
-        print(f'{model_number}. {i["name"]}')
-        model_number += 1
-        models_list.append(i["name"])
-    return models_list
-    # choice_model = int(input("Выберите модель - "))
-    # return models_list[choice_model - 1]
 
 
 def pull_model(model):
