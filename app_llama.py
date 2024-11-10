@@ -1,7 +1,7 @@
 import ollama
 from ollama import Client
 
-client = Client(host='http://127.0.0.1:11434')
+client = Client(host='http://0.0.0.0:11434')
 
 
 
