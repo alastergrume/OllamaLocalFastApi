@@ -1,7 +1,7 @@
 import ollama
 from ollama import Client
 
-client = Client(host='http://192.168.0.27:11434')
+client = Client(host='http://127.0.0.1:11434')
 
 
 
@@ -10,7 +10,7 @@ def ollama_response(history, message):
     Взаимодействие с Ollama
     """
     # client.pull(model='llama3.2')
-    response = client.chat(model='llama3', messages= [
+    response = client.chat(model='mistral', messages= [
                     {
                             'role': 'user',
                             'content': f'{message}, History:{history}'
