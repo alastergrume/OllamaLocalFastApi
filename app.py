@@ -19,7 +19,7 @@ def model():
 @app.post('/postdata')
 def postdata(model=Form()):
     pull_model(model)
-    return RedirectResponse('/message', status_code=status.HTTP_302_FOUND)
+    return RedirectResponse('/', status_code=status.HTTP_302_FOUND)
 
 
 @app.get("/", response_class=HTMLResponse)
