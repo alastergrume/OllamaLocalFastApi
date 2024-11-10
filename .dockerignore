@@ -1,0 +1,12 @@
+README.md
+Dockerfile
+
+main.py
+requirements.in
+.venv
+.idea
+.dockerignore
+
+.git
+__pycache__
+fastapiapp2.tar

@@ -1,0 +1,7 @@
+*.tar
+.idea/
+.venv/
+__pycache__/
+README.md
+fastapiapp2.tar
+requirements.in
